@@ -5,6 +5,13 @@ class Contact < ApplicationRecord
 
   before_create :default_values
 
+  def self.leaderboard
+    left_joins(:referrals)
+      .group(:id)
+      .order('COUNT(referrals.id) DESC')
+      .limit(20)
+  end
+
   private
 
   def default_values
