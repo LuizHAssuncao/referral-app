@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Referral, type: :model do
-  it { should belong_to(:contact) }
+  context 'when checking referral relationships' do
+    it { should belong_to(:contact) }
+  end
 
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:email) }
+  context 'when validating referral fields' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+  end
 end

@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
-  it { should have_many(:referrals).dependent(:destroy) }
+  context 'when checking contact relationships' do
+    it { should have_many(:referrals).dependent(:destroy) }
+  end
 
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:email) }
+  context 'when validating contact fields' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+  end
 end
