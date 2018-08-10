@@ -1,8 +1,8 @@
-# README
+# API Documentation
 
-**API Documentation**
-
+**References
 Link API: <https://influitive-referral-app.herokuapp.com>
+Invite to Slack: https://join.slack.com/t/referral-app-test/shared_invite/enQtNDE1MTg1MjY4NzI3LTA5NjRmOTZiYTE2ODQxYjdlODkxODViNWI4NWRmMTM1NDdjNjFlZTE5OTY5YmExMzUzOGY3OWM3ZDI3ZDczNGM
 
 **Create a contact**
 ----
