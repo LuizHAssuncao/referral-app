@@ -17,7 +17,7 @@ class Referral < ApplicationRecord
     Contact.update(contact.id, points: new_score)
 
     payload = {
-      event_type: 'referral_awarded',
+      event_type: Enums::EventType::REFERRAL_AWARDED,
       points: DEFAULT_POINTS_AWARDED,
       descriptions: build_event_message(contact_id: contact_id, new_score: new_score)
     }
