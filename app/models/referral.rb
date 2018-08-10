@@ -10,9 +10,10 @@ class Referral < ApplicationRecord
   class_attribute :notifiers
   self.notifiers = [Notifiers::EventNotifier, Notifiers::SlackNotifier]
 
-  private
-
   DEFAULT_POINTS_AWARDED = 100
+  private_constant :DEFAULT_POINTS_AWARDED
+
+  private
 
   def award_referrer
     new_score = contact.points + DEFAULT_POINTS_AWARDED
