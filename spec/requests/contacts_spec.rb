@@ -106,7 +106,9 @@ RSpec.describe 'Contact API', type: :request do
           # CHECK: get id in database to check
           put "/contacts/#{contact_id}", params: { name: "Luiz Assuncao", email: 'test2@luiz.tech' }
 
+          contact = Contact.find(contact_id)
           expect(response.body).to be_empty
+          expect(contact.email).to eq 'test2@luiz.tech'
         end
 
         it 'returns status code 204' do
@@ -119,10 +121,10 @@ RSpec.describe 'Contact API', type: :request do
 
     describe 'DELETE /contacts/:id' do
       it 'returns status code 204' do
-        # CHECK: get id in database to check
         delete "/contacts/#{contact_id}"
 
-        expect(response).to have_http_status(204)
+        contact_existence = Contact.exists?(contact_id)
+        expect(contact_existence).to be false
       end
     end
   end
