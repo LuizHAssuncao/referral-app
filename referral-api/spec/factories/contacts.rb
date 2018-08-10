@@ -3,7 +3,7 @@ FactoryBot.define do
     name { Faker::StarWars.character }
     email { Faker::Internet.email }
 
-    ignore do
+    transient do
       referrals_count 2
     end
 

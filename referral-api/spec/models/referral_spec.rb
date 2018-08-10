@@ -19,5 +19,16 @@ RSpec.describe Referral, type: :model do
 
       expect(result.points).to eq 200
     end
+
+    it 'records an referral_awarded event' do
+      contact = FactoryBot.create(:contact)
+      FactoryBot.create(:referral, contact_id: contact.id)
+      FactoryBot.create(:referral, contact_id: contact.id)
+      result = Event.last
+
+      expect(result.points).to eq 100
+      expect(result.descriptions).to eq "Referral awarded to contact id: #{contact.id}. New score: 200"
+      expect(result.event_type).to eq 'referral_awarded'
+    end
   end
 end
