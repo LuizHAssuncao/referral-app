@@ -5,9 +5,11 @@ class Referral < ApplicationRecord
 
   after_create :award_referrer
 
+  class_attribute :notifiers
+  self.notifiers = [Notifiers::EventNotifier, Notifiers::SlackNotifier]
+
   private
 
-  @@observers = [Notifiers::EventNotifier, Notifiers::SlackNotifier]
   DEFAULT_POINTS_AWARDED = 100
 
   def award_referrer
@@ -27,6 +29,6 @@ class Referral < ApplicationRecord
   end
 
   def notify_observers(payload)
-    @@observers.each { |notifier| notifier.new.notify(payload: payload) }
+    self.notifiers.each { |notifier| notifier.new.notify(payload: payload) }
   end
 end

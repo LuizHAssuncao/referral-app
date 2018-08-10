@@ -18,6 +18,8 @@ RSpec.describe 'Events API', type: :request do
   end
 
   def create_contact_with(referrals:)
-    create(:contact_with_referrals, referrals_count: referrals)
+    contact = FactoryBot.create(:contact)
+    create(:referral, contact_id: contact.id, notifiers: [Notifiers::EventNotifier])
+    create(:referral, contact_id: contact.id, notifiers: [Notifiers::EventNotifier])
   end
 end

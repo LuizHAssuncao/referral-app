@@ -22,8 +22,8 @@ RSpec.describe Referral, type: :model do
 
     it 'records an referral_awarded event' do
       contact = FactoryBot.create(:contact)
-      FactoryBot.create(:referral, contact_id: contact.id)
-      FactoryBot.create(:referral, contact_id: contact.id)
+      create(:referral, contact_id: contact.id, notifiers: [Notifiers::EventNotifier])
+      create(:referral, contact_id: contact.id, notifiers: [Notifiers::EventNotifier])
       result = Event.last
 
       expect(result.points).to eq 100

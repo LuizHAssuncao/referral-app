@@ -10,7 +10,8 @@ RSpec.describe Notifiers::SlackNotifier, type: :notifiers do
 
       subject.notify(payload: payload)
 
-      expect(http_client).to have_received(:post).with(url, body: payload[:descriptions])
+      expected_result = {:body=>"{\"text\":\"test\"}"}
+      expect(http_client).to have_received(:post).with(url, expected_result)
     end
   end
 end
