@@ -72,9 +72,11 @@ RSpec.describe 'referrals API' do
 
   describe 'POST /contacts/:contact_id/referrals' do
     context 'when request attributes are valid' do
-      it 'returns status code 201' do
+      it 'creates a referral' do
         post "/contacts/#{contact_id}/referrals", params: { name: 'Luiz', email: 'test@luiz.tech' }
 
+        expect(json['name']).to eq('Luiz')
+        expect(json['email']).to eq('test@luiz.tech')
         expect(response).to have_http_status(201)
       end
     end

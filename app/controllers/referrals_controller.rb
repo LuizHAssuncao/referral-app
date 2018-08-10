@@ -11,7 +11,7 @@ class ReferralsController < ApplicationController
   end
 
   def create
-    @contact.referrals.create!(referral_params)
+    @referral = @contact.referrals.create!(referral_params)
     json_response(@referral, :created)
   end
 
