@@ -8,7 +8,7 @@ class Contact < ApplicationRecord
   def self.leaderboard
     left_joins(:referrals)
       .group(:id)
-      .order('COUNT(referrals.id) DESC')
+      .order(Arel.sql('COUNT(referrals.id) DESC'))
       .limit(20)
   end
 
