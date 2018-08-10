@@ -1,3 +1,5 @@
+require 'enums/event_type'
+
 class Referral < ApplicationRecord
   belongs_to :contact
 
