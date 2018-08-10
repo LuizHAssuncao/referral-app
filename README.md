@@ -32,14 +32,14 @@
 * **Success Response:**
 
   * **Code:** 201 <br />
-    **Content:** `{ "id": 1, "name": "Luiz", "email": "test@luiz.tech", "points": 0, "created_at": "2018-08-10T05:22:30.330Z", "updated_at": "2018-08-10T05:22:30.330Z" }`
+    **Content:** `{ "id": 1, "name": "Luiz", "email": "test@test.tech", "points": 0, "created_at": "2018-08-10T05:22:30.330Z", "updated_at": "2018-08-10T05:22:30.330Z" }`
 
 * **Sample Call:**
 
   ```shell
   curl -X POST https://influitive-referral-app.herokuapp.com/contacts 
     -H 'content-type: application/json'
-    -d '{ "name": "Luiz", "email": "test@luiz.tech"}'
+    -d '{ "name": "Luiz", "email": "test@test.tech"}'
   ```
 
 **Show all contacts**
@@ -132,7 +132,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[ { "id": 1, "name": "Luiz", "email": "test@luiz.tech", "contact_id": 1, "created_at": "2018-08-10T05:09:34.853Z", "updated_at": "2018-08-10T05:09:34.853Z" }, { "id": 9, "name": "Luiz", "email": "test@luiz.tech", "contact_id": 1, "created_at": "2018-08-10T05:30:28.836Z", "updated_at": "2018-08-10T05:30:28.836Z" } ]`
+    **Content:** `[ { "id": 1, "name": "Luiz", "email": "test@test.tech", "contact_id": 1, "created_at": "2018-08-10T05:09:34.853Z", "updated_at": "2018-08-10T05:09:34.853Z" }, { "id": 9, "name": "Luiz", "email": "test@test.tech", "contact_id": 1, "created_at": "2018-08-10T05:30:28.836Z", "updated_at": "2018-08-10T05:30:28.836Z" } ]`
 
 * **Sample Call:**
 
@@ -164,7 +164,7 @@ Show all contacts sorted by amount of referrals
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[ { "id": 1, "name": "Luiz", "email": "test@luiz.tech", "points": 200, "created_at": "2018-08-10T05:09:26.215Z", "updated_at": "2018-08-10T05:30:28.843Z" }, { "id": 2, "name": "Luiz", "email": "test@luiz.tech", "points": 0, "created_at": "2018-08-10T18:29:47.844Z", "updated_at": "2018-08-10T18:29:47.844Z" }, { "id": 3, "name": "Luiz", "email": "test@luiz.tech", "points": 0, "created_at": "2018-08-10T18:30:49.075Z", "updated_at": "2018-08-10T18:30:49.075Z" } ]`
+    **Content:** `[ { "id": 1, "name": "Luiz", "email": "test@test.tech", "points": 200, "created_at": "2018-08-10T05:09:26.215Z", "updated_at": "2018-08-10T05:30:28.843Z" }, { "id": 2, "name": "Luiz", "email": "test@test.tech", "points": 0, "created_at": "2018-08-10T18:29:47.844Z", "updated_at": "2018-08-10T18:29:47.844Z" }, { "id": 3, "name": "Luiz", "email": "test@test.tech", "points": 0, "created_at": "2018-08-10T18:30:49.075Z", "updated_at": "2018-08-10T18:30:49.075Z" } ]`
 
 * **Sample Call:**
 
