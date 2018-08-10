@@ -37,9 +37,7 @@
 * **Sample Call:**
 
   ```shell
-  curl -X POST https://influitive-referral-app.herokuapp.com/contacts 
-    -H 'content-type: application/json'
-    -d '{ "name": "Luiz", "email": "test@test.tech"}'
+  curl -X POST https://influitive-referral-app.herokuapp.com/contacts -H 'content-type: application/json' -d '{ "name": "Luiz", "email": "test@test.tech"}'
   ```
 
 **Show all contacts**
@@ -102,13 +100,7 @@
 * **Sample Call:**
 
   ```shell
-  curl -X POST
-  https://influitive-referral-app.herokuapp.com/contacts/1/referrals
-    -H 'content-type: application/json'
-    -d '{
-          "name": "Fernando",
-          "email": "test2@test.tech"
-        }'
+  curl -X POST https://influitive-referral-app.herokuapp.com/contacts/1/referrals -H 'content-type: application/json' -d '{ "name": "Fernando", "email": "test2@test.tech" }'
   ```
 
 **Show all referrals**
