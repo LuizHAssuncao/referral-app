@@ -1,4 +1,5 @@
 require 'http'
+require 'json'
 
 module Notifiers
   class SlackNotifier
@@ -8,7 +9,8 @@ module Notifiers
     end
 
     def notify(payload:)
-      @http_client.post(@url, body: payload.descriptions)
+      content = { text: payload[:descriptions] }
+      @http_client.post(@url, body: content.to_json)
     end
   end
 end

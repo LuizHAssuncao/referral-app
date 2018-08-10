@@ -7,6 +7,7 @@ class Referral < ApplicationRecord
 
   private
 
+  @@observers = [Notifiers::EventNotifier, Notifiers::SlackNotifier]
   DEFAULT_POINTS_AWARDED = 100
 
   def award_referrer
@@ -18,11 +19,14 @@ class Referral < ApplicationRecord
       points: DEFAULT_POINTS_AWARDED,
       descriptions: build_event_message(contact_id: contact_id, new_score: new_score)
     }
-    notifier = Notifiers::EventNotifier.new
-    notifier.notify(payload: payload)
+    notify_observers(payload)
   end
 
   def build_event_message(contact_id:, new_score:)
     "Referral awarded to contact id: #{contact_id}. New score: #{new_score}"
+  end
+
+  def notify_observers(payload)
+    @@observers.each { |notifier| notifier.new.notify(payload: payload) }
   end
 end
