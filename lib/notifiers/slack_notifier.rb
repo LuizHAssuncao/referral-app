@@ -5,7 +5,7 @@ module Notifiers
   class SlackNotifier
     def initialize(dependencies = {})
       @http_client = dependencies.fetch(:http_client, HTTP)
-      @url = dependencies.fetch(:url, 'https://hooks.slack.com/services/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')
+      @url = dependencies.fetch(:url, ENV['SLACK_WEBHOOK'])
     end
 
     def notify(payload:)
